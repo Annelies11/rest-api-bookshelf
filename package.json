@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@hapi/hapi": "^21.3.2",
     "eslint": "^8.42.0"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.22"
   }
 }
