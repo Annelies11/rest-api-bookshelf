@@ -1,3 +1,5 @@
+const {createBooksHandler} = require('./handler')
+
 const routes = [
     {
         method: 'GET',
@@ -12,6 +14,11 @@ const routes = [
         handler: () => {
             return 'Halaman ini tidak dapat diakses dengan method ini'
         }
+    },
+    {
+        method:'POST',
+        path: '/books',
+        handler: createBooksHandler
     }
 ]
 module.exports = routes

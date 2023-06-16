@@ -1,0 +1,29 @@
+#Create Data
+{
+    "name":string,
+    "year":number,
+    "author":string,
+    "summary":string,
+    "publisher":string,
+    "pageCount":number,
+    "readPage":number,
+    "reading":boolean
+}
+
+{
+    "id":nanoid(16),
+    "name":string,
+    "year":number,
+    "author":string,
+    "summary":string,
+    "publisher":string,
+    "pageCount":number,
+    "readPage":number,
+    "finished":boolean,
+    "reading":boolean,
+    "insertedAt":time,
+    "updatedAt":time
+}
+++ jika finished = true (readPage = pageCount)
+++ jika finished = false (readPage < pageCount)
+++ jika finished = undefined (readPage > pageCount)
