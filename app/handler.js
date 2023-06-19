@@ -4,7 +4,7 @@ const {nanoid} = require('nanoid')
 const createBooksHandler = (request, h) => {
     const {name, year, author, summary, publisher, pageCount, readPage, reading} = request.payload
     const {id} = nanoid(16)
-    const isFinished = (readPage, pageCount) {
+    const isFinished = (readPage, pageCount) => {
         if(readPage === pageCount){
             return true
         }
@@ -38,8 +38,20 @@ const createBooksHandler = (request, h) => {
 
     if(isSuccess){
         const res = h.response({
-            status =:'success',
-            
+            status:'success',
+            data:{
+                bookId:id
+            }
         })
+        res.code(201)
+        return res
     }
+    const res = h.response({
+        status:'error',
+        message:'Buku gagal ditambahkan'
+
+    })
+    res.code(500)
+    return res
 }
+module.exports = {createBooksHandler}
