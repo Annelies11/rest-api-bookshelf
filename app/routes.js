@@ -1,29 +1,37 @@
-const {createBooksHandler, getAllBooksHandler} = require('./handler')
+const {addBooksHandler, getAllBooksHandler, getByIdBooksHandler, editBooksHandler, deleteBooksHandler} = require('./handler')
 
 const routes = [
     {
         method: 'GET',
         path: '/',
         handler: () => {
-            return 'Ini adalah halaman home hrrr'
-        }
-    },
-    {
-        method: '*',
-        path: '/',
-        handler: () => {
-            return 'Halaman ini tidak dapat diakses dengan method ini'
+            return 'Homepage View'
         }
     },
     {
         method:'POST',
         path: '/books',
-        handler: createBooksHandler
+        handler: addBooksHandler
     },
     {
         method:'GET',
         path:'/books',
         handler: getAllBooksHandler
-    }
+    },
+    {
+        method: 'GET',
+        path: '/books/{bookId}',
+        handler: getByIdBooksHandler
+    },
+    {
+        method: 'PUT',
+        path: '/books/{bookId}',
+        handler: editBooksHandler
+    },
+    {
+        method: 'DELETE',
+        path: '/books/{bookId}',
+        handler: deleteBooksHandler
+    }    
 ]
 module.exports = routes
